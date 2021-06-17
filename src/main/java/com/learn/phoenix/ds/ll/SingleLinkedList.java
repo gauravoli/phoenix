@@ -3,6 +3,9 @@ package com.learn.phoenix.ds.ll;
 public class SingleLinkedList {
     private Node head;
 
+    /**
+     * traverse the complete list
+     */
     public void traverse() {
         if (null == head) {
             System.out.println("no list found");
@@ -48,7 +51,7 @@ public class SingleLinkedList {
             System.out.println("no list found");
         } else {
             if (head.getData() == data) {
-                head = null;
+                head = head.getNext();
                 System.out.println("now list is empty");
             } else {
                 Node currentNode = head;
@@ -56,7 +59,7 @@ public class SingleLinkedList {
                 while (null != currentNode.getNext()) {
                     if (data == currentNode.getData()) {
                         System.out.println("deleting node having data: " + currentNode.getData());
-                         prevNode.setNext(currentNode.getNext());
+                        prevNode.setNext(currentNode.getNext());
                         break;
                     }
                     prevNode = currentNode;
@@ -71,11 +74,8 @@ public class SingleLinkedList {
         for (int index = 0; index < 10; index++) {
             linkedList.add(index);
         }
-
         linkedList.traverse();
-
-        linkedList.delete(5);
-
+        linkedList.delete(0);
         linkedList.traverse();
     }
 }
